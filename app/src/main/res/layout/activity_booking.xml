@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booking Appointment"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmBtn"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patient Information"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/patientNameEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_border"
+                android:hint="Patient Full Name"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/fatherNameEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:hint="Father Name"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/cnicEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:hint="CNIC (13 Digits)"
+                android:inputType="number"
+                android:maxLength="13"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp" />
+
+            <EditText
+                android:id="@+id/phoneEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:hint="Phone Number (11 Digits)"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp" />
+
+            <EditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp" />
+
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:paddingHorizontal="16dp"
+                android:entries="@array/gender_array"/>
+
+            <EditText
+                android:id="@+id/ageEt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:hint="Age"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Appointment Schedule"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dateTxt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_border"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="Select Date &amp; Day"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@android:drawable/ic_menu_my_calendar"
+                android:drawablePadding="12dp"
+                app:drawableTint="@color/purple" />
+
+            <TextView
+                android:id="@+id/timeTxt"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_border"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="Select Time"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@android:drawable/ic_menu_recent_history"
+                android:drawablePadding="12dp"
+                app:drawableTint="@color/purple" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/purple_button_bg"
+        android:text="Confirm Appointment"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

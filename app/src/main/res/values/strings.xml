@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">smarthealthcare</string>
+    <string name="hello_how_are_you">Hello ! How are you? </string>
+    <string name="welcome_to_smart_healthcare">Welcome to Smart HealthCare</string>
+    <string name="searching">searching...</string>
+    <string name="nearby_doctor">Nearby doctor</string>
+    <string name="see_all">see all</string>
+    <string name="bell_icon_description">Notifications</string>
+    <string name="banner_description">Promotion Banner</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>

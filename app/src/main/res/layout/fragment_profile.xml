@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light_grey">
+
+    <!-- Top Curved Purple Header -->
+    <View
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/profile_header_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Header shows the logged in username -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="30dp"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="40dp">
+
+            <!-- Main Info Card (Forced White Background) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profileCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="70dp"
+                    android:paddingBottom="24dp"
+                    android:paddingHorizontal="24dp">
+
+                    <TextView
+                        android:id="@+id/profileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Name"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="20dp"
+                        android:background="#F3F4F6" />
+
+                    <!-- User Detail Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profilePhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:drawableStartCompat="@android:drawable/ic_menu_call"
+                            android:drawablePadding="16dp"
+                            android:gravity="center_vertical"
+                            android:text="Phone Not Set"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:drawableTint="@color/purple_primary" />
+
+                        <TextView
+                            android:id="@+id/profileDob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:drawableStartCompat="@android:drawable/ic_menu_my_calendar"
+                            android:drawablePadding="16dp"
+                            android:gravity="center_vertical"
+                            android:text="DOB Not Set"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:drawableTint="@color/purple_primary" />
+
+                        <TextView
+                            android:id="@+id/profileAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:drawableStartCompat="@android:drawable/ic_menu_mylocation"
+                            android:drawablePadding="16dp"
+                            android:gravity="center_vertical"
+                            android:text="Address Not Set"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:drawableTint="@color/purple_primary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Overlapping Profile Image Container -->
+            <FrameLayout
+                android:id="@+id/imgContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="12dp"
+                app:layout_constraintBottom_toTopOf="@id/profileCard"
+                app:layout_constraintEnd_toEndOf="@id/profileCard"
+                app:layout_constraintStart_toStartOf="@id/profileCard"
+                app:layout_constraintTop_toTopOf="@id/profileCard">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profileImg"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="3dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/white_circle_bg"
+                    app:shapeAppearanceOverlay="@style/circleImage"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="4dp" />
+
+                <ImageView
+                    android:id="@+id/btnEditPhoto"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/white_circle_bg"
+                    android:elevation="6dp"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:tint="@color/purple_primary" />
+
+                <ImageView
+                    android:id="@+id/btnDeletePhoto"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/white_circle_bg"
+                    android:elevation="6dp"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:visibility="gone"
+                    app:tint="@color/red_error" />
+            </FrameLayout>
+
+            <!-- Settings Menu Section (Forced White Background) -->
+            <TextView
+                android:id="@+id/tvSettingsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="32dp"
+                android:text="General Settings"
+                android:textColor="@color/text_grey"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileCard" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/menuCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/tvSettingsTitle"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/menuEditProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_edit" app:tint="@color/purple_primary" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Edit Profile" android:textColor="@color/black" android:textSize="16sp" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_media_next" app:tint="@color/text_grey" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginHorizontal="20dp" />
+
+                    <LinearLayout
+                        android:id="@+id/menuAppointments"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_my_calendar" app:tint="@color/purple_primary" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="My Appointments" android:textColor="@color/black" android:textSize="16sp" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_media_next" app:tint="@color/text_grey" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginHorizontal="20dp" />
+
+                    <LinearLayout
+                        android:id="@+id/menuPrivacy"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_lock_idle_lock" app:tint="@color/purple_primary" />
+                        <TextView android:id="@+id/privacyPolicyTxt" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Privacy Policy" android:textColor="@color/black" android:textSize="16sp" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_media_next" app:tint="@color/text_grey" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginHorizontal="20dp" />
+
+                    <LinearLayout
+                        android:id="@+id/menuHelp"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_help" app:tint="@color/purple_primary" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Help &amp; Support" android:textColor="@color/black" android:textSize="16sp" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_media_next" app:tint="@color/text_grey" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Gradient Logout Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/purple_button_bg"
+                android:elevation="6dp"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/menuCard" />
+
+            <!-- Permanent Delete Link -->
+            <TextView
+                android:id="@+id/btnDeleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Permanently Delete Account"
+                android:textColor="@color/red_error"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logoutBtn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
